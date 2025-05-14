@@ -1,0 +1,4 @@
+baseURL = 'https://your-username.github.io/'
+theme = "PaperMod"
+languageCode = 'en-us'
+title = 'Qingtai Site'
