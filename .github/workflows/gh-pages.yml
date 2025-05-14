@@ -1,13 +1,16 @@
 name: Deploy Hugo site to GitHub Pages
+
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v2
         with:
           submodules: true
 
@@ -17,17 +20,11 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build
+      - name: Build the website
         run: hugo --minify
-        working-directory: ./  # ← 让 hugo 在正确目录下运行（就是 qingtaihugo/qingtaihugo）
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-      - name: Debug paths
-        run: |
-          pwd
-          ls -al
-          
