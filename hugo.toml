@@ -1,4 +1,4 @@
-baseURL = 'https://your-username.github.io/'
+baseURL = "https://oxcarbazerpine.github.io/qingtaihugo/"
 theme = "PaperMod"
 languageCode = 'en-us'
 title = 'Qingtai Site'
