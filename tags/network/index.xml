@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network on Qingtai Site</title><link>https://oxcarbazerpine.github.io/qingtaihugo/tags/network/</link><description>Recent content in Network on Qingtai Site</description><generator>Hugo -- 0.147.8</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>计算机网络</title><link>https://oxcarbazerpine.github.io/qingtaihugo/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid><description>&lt;p>-王道考研
+第一章 计算机网络体系结构
+可以互相通信，但没有互相控制
+组成部分：硬件，软件，协议
+工作方式：边缘部分：用户直接使用
+核心部分：为边缘提供支持
+功能：数据通信，资源共享&lt;/p>
+&lt;p>分类
+分布范围：广域网WAN，城域网MAN，局域网LAN，个人区域网PAN
+使用者：公用网，专用网
+交换技术：电路交换，报文交换，分组交换
+传输技术：广播式，点对点式&lt;/p>
+&lt;p>-思科Cisco Packet Tracer仿真实验
+TCP/IP 四层协议体系
+数据链路层：数据的物理传输以及网卡驱动读取数据
+网络层：控制数据包的路由和转发
+传输层：控制计算机之间端到端的通信
+应用层：各种应用程序的逻辑&lt;/p>
+&lt;p>集线器:一种总线网络，无差别广播以及发生碰撞
+概念：IP地址， MAC地址
+ARP协议：Address Resolution Protocol
+属于网络层。维护一个ARP表，记录ip地址，MAC号，网络接口。其它协议不知道发送目的的MAC号时，首先发送ARP包广播询问MAC号，并更新表项，再次尝试发送原包。&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>自顶而下&lt;/strong>&lt;/p>
+&lt;h1 id="intro">Intro&lt;/h1>
+&lt;p>宽带接入：&lt;/p>
+&lt;ul>
+&lt;li>复用电话线路：数字用户线DSL(Digital Subscriber Line)&lt;/li>
+&lt;li>复用有线电视线路：光纤+同轴电缆&lt;/li>
+&lt;li>FTTH光纤入户：将光纤线拉到家里&lt;/li>
+&lt;li>卫星链路接入&lt;/li>
+&lt;li>WiFi:无线LAN接入-调制解调器-ISP&lt;/li>
+&lt;li>广域无线接入：3G&lt;/li>
+&lt;/ul>
+&lt;p>物理媒介&lt;/p>
+&lt;ul>
+&lt;li>双绞铜线：两根绞合的铜线，电话线，10M~10G，高速LAN网&lt;/li>
+&lt;li>同轴电缆：两个同心铜导体，数十MB&lt;/li>
+&lt;li>光纤：数百GB，不受电磁干扰，长途不衰减。成本高&lt;/li>
+&lt;li>无线电信道&lt;/li>
+&lt;li>卫星无线电：280ms时延，数百M&lt;/li>
+&lt;/ul>
+&lt;p>分组交换
+路由器的存储转发：&lt;/p>
+&lt;ul>
+&lt;li>缓存完整分组后转发，延迟为2L/R&lt;/li>
+&lt;li>排队时延queue delay：路由器的缓存有限，造成丢包packet lost&lt;/li>
+&lt;li>转发表forwarding table：端口ip与物理编号&lt;/li>
+&lt;/ul>
+&lt;p>电路交换：预定资源，电路交换机构成
+收发方先建立一条能直接联通的电路circuit，确保能以恒定速率传输数据。
+每个电路交换机预留恒定带宽维持通信&lt;/p>
+&lt;ul>
+&lt;li>频分复用FDM|Frequency-Division Multiplexing:分配固定的频段，收音机FM也是&lt;/li>
+&lt;li>时分复用TDM：在循环的TDM帧重每条电路被分配专用时隙&lt;/li>
+&lt;/ul>
+&lt;p>互联网：网络的网络，&lt;/p>
+&lt;ol>
+&lt;li>第一层ISP-十数个&lt;/li>
+&lt;li>区域ISP-数十万个&lt;/li>
+&lt;li>接入ISP&lt;/li>
+&lt;/ol>
+&lt;p>延迟：1. 处理时延 2. 排队时延 3. 传输时延（推到线路上所用时间） 4. 传播时延
+流量强度/传输速率，接近1时，排队时延无限长
+丢包：超出缓冲区，被路由器丢弃
+吞吐量：单位时间传送的比特量，由链路的瓶颈决定&lt;/p></description></item></channel></rss>
