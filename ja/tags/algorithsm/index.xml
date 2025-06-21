@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Algorithsm on 私のサイト</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/tags/algorithsm/</link><description>Recent content in Algorithsm on 私のサイト</description><generator>Hugo -- 0.147.8</generator><language>ja</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/ja/tags/algorithsm/index.xml" rel="self" type="application/rss+xml"/><item><title>Hash算法</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/</guid><description>&lt;p>通过哈希方程将原始数据计算为一串定长的数字，（SHA-256算法就是256bits)，计算后的值称为哈希值（hash value or digest) ，哈希值不可逆，即无法通过哈希值反推出原始数据，并且就算原始数据只有微小的变化，算出的哈希值也与之前的完全不同，所以不易根据之前的值暴力破解。在实际运用中常用于比较，在我们输入密码后，密码先被算出它的哈希值，然后传输到服务器数据库，数据库里存的密码数据都是原始密码的哈希值，通过与用户传过来的哈希值比较来验证密码是否正确。&lt;/p>
-&lt;p>在存储数据时，可以根据哈希方程创建一个哈希表用数据本身计算哈希值来作为表格的索引，计算方式如下：
-如果数据是数字，可以用这个数字本身（或各位数字或每隔一定长度比如四位作为一小段，相加得到每一个部分相加的和），来mod表格长度取余数，得到索引，也就是这个数据在表格的坐标；如果数据是字符串，可以根据ASCii表转换成数字然后求和，继续刚才的算法。
-冲突：
-若两个数据计算出来的哈希值相同，就会发生冲突，这时后来的数据有几种处理方法：
-open addressing(任何一个数据可以视情况占据表格的任何位置）
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Algorithsm on 私のサイト</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/tags/algorithsm/</link><description>Recent content in Algorithsm on 私のサイト</description><generator>Hugo -- 0.147.8</generator><language>ja</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/ja/tags/algorithsm/index.xml" rel="self" type="application/rss+xml"/><item><title>Hash算法</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/</guid><description>&lt;p>原始データはハッシュ関数を通じて一定の長さの数列に計算され、この計算後の値をハッシュ値（ハッシュバリューまたはダイジェスト）と呼びます。ハッシュ値は不可逆で、つまり、ハッシュ値から原始データを逆推理することはできません。また、原始データが微小に変わると、求められたハッシュ値は以前のものと全く異なるため、前の値をもとに強制的に解読するのは困難です。実際の使用では、比較のためによく使用されます。パスワードを入力した後、そのパスワードのハッシュ値が計算され、サーバーデータベースに送信されます。データベースに保存されているパスワードデータは全て元のパスワードのハッシュ値で、ユーザーから送信されたハッシュ値と比較してパスワードが正しいかどうかを検証します。&lt;/p>
+&lt;p>データを保存する際には、ハッシュ関数を使ってハッシュテーブルを作成し、データ自体を計算したハッシュ値をテーブルのインデックスとして使用することができます。計算方法は以下の通りです:
+データが数字であれば、この数字自体（またはその各桁の数字または一定の長さ、例えば4桁ずつの小節）をmodテーブルの長さにして余数を求め、これがインデックス（つまり、このデータがテーブルのどの位置にあるか）を作成します。データが文字列の場合、ASCII表を使って数字に変換し、その合計を求め、前のアルゴリズムを続行します。&lt;/p>
+&lt;p>衝突：
+2つのデータが同じハッシュ値を計算した場合、衝突が起こる可能性があります。次に到着するデータの処理方法は次のとおりです :
+オープンアドレッシング方式（任意のデータがテーブルの任意の位置を占めることができます）
 1.
-Linear probing 依次向后查找空位
+リニアプロービング方式 最寄りの空きスポットを探す
 2.
-Plus 3 rehash 隔三个空向后跳跃查找空位
+プラス3リハッシュ方式 3つ先の空きスポットを飛び飛びに探す
 3.
-其余方法&lt;/p>
-&lt;p>closed addressing
-采用链式连接方式，通过已经占位的数据链接到新数据的位置。&lt;/p></description></item></channel></rss>
+その他の方法&lt;/p>
+&lt;p>クローズドアドレッシング方式
+リンク方式を使用。既に占有しているデータをエントリポイントにして新しいデータをリンクさせる。&lt;/p></description></item></channel></rss>
