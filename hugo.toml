@@ -4,3 +4,29 @@ languageCode = 'en-us'
 title = 'Qingtai Site'
 homeInfoParams = { Title = "欢迎来到 Qingtai 的博客", Content = "这里是内容摘要区" }
 ShowPostList = true
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+    contentDir = "content/en"
+    title = "My Site"
+    
+  [languages.ja]
+    languageName = "日本語"
+    weight = 2
+    contentDir = "content/ja"
+    title = "私のサイト"
+[menus]
+  [[languages.en.menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[languages.ja.menu.main]]
+    name = "ホーム"
+    url = "/ja/"
+    weight = 1
+[params]
+  ShowLanguageSelector = true
