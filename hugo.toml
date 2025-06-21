@@ -18,6 +18,12 @@ defaultContentLanguageInSubdir = true
     weight = 2
     contentDir = "content/ja"
     title = "私のサイト"
+    
+  [languages.zh]
+    languageName = "中文"
+    weight = 3
+    contentDir = "content/zh"
+    title = "青苔博客"
 [menus]
   [[languages.en.menu.main]]
     name = "Home"
@@ -27,6 +33,11 @@ defaultContentLanguageInSubdir = true
   [[languages.ja.menu.main]]
     name = "ホーム"
     url = "/ja/"
+    weight = 1
+
+  [[languages.zh.menu.main]]
+    name = "主页"
+    url = "/zh/"
     weight = 1
 [params]
   ShowLanguageSelector = true
