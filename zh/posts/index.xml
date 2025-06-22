@@ -243,8 +243,7 @@ MySQL使用，所有数据存在叶子节点，非叶子节点只存储冗余的
 比对操作快，如果是字符串索引，需要逐位查找编码表（ASCII或者utf8等）表然后比较先后，这也是为什么不推荐使用是随机字符串的UUID。&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>为什么需要自增&lt;/strong>&lt;br>
-（此处原文未说明原因，可根据需要补充）&lt;/p>
+&lt;p>&lt;strong>为什么需要自增&lt;/strong>&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;hr>

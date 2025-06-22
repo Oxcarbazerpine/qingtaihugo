@@ -51,7 +51,6 @@ InnoDB
 为什么要用整数
 比对操作快，如果是字符串索引，需要逐位查找编码表（ASCII或者utf8等）表然后比较先后，这也是为什么不推荐使用是随机字符串的UUID。
 为什么需要自增
-（此处原文未说明原因，可根据需要补充）
 每个字段的索引可以设置，默认为B+ Tree，可以选择用Hash Hash MySQL有自己的hash实现 本质是数组+链表，hash计算查找值算出hash值，作为数组的key，数据作为数组的value；如果计算出的hash值重复了，即发生了hash碰撞，则数组value存储指向下一个链表节点的指针，直到链表末尾指向数据。 一般情况下查找速度甚至好于B+树，但是由于不能进行范围查找，没有被采用，因此如果不进行区间查找的场景可以考虑使用hash索引</p></div><footer class=entry-footer><span title='2024-06-01 00:00:00 +0000 UTC'>六月 1, 2024</span></footer><a class=entry-link aria-label="post link to 数据库索引" href=https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Hello World</h2></header><div class=entry-content><p>这是第一篇文章内容。</p></div><footer class=entry-footer><span title='2024-05-13 00:00:00 +0000 UTC'>五月 13, 2024</span></footer><a class=entry-link aria-label="post link to Hello World" href=https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/hello-world/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://oxcarbazerpine.github.io/qingtaihugo/zh/>青苔博客</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
