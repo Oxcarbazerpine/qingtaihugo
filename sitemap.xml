@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://oxcarbazerpine.github.io/qingtaihugo/en/sitemap.xml</loc><lastmod>2024-06-01T00:00:00+00:00</lastmod></sitemap><sitemap><loc>https://oxcarbazerpine.github.io/qingtaihugo/ja/sitemap.xml</loc><lastmod>2024-06-01T00:00:00+00:00</lastmod></sitemap><sitemap><loc>https://oxcarbazerpine.github.io/qingtaihugo/zh/sitemap.xml</loc><lastmod>2024-06-01T00:00:00+00:00</lastmod></sitemap></sitemapindex>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/qingtaihugo/posts/hello-world/</loc>
+    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/qingtaihugo/posts/</loc>
+    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/qingtaihugo/</loc>
+    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/qingtaihugo/tags/</loc>
+    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/qingtaihugo/tags/test/</loc>
+    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/qingtaihugo/categories/</loc>
+  </url>
+</urlset>

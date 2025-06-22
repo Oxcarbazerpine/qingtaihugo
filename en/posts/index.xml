@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on My Site</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/</link><description>Recent content in Posts on My Site</description><generator>Hugo -- 0.147.8</generator><language>en</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/en/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hash算法</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/</guid><description>&lt;p>The original data is calculated into a string of fixed-length numbers through a hash function, (such as SHA-256 algorithm which is 256 bits long), the calculated value is called a hash value (or digest). Hash values are irreversible, meaning that original data cannot be deduced from the hash value. Even if the original data changes slightly, the calculated hash value will be completely different from the previous one, making it hard to break violently according to the previous value. In practical applications, it&amp;rsquo;s often used for comparison. For instance, when we input a password, its hash value is calculated first and then transmitted to the server database. The password data stored in the database are all hash values of the original passwords, and a comparison with the hash value transmitted by the user verifies the correctness of the password.&lt;/p></description></item><item><title>存储技术</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/</guid><description>&lt;p>Simulated Signal Magnetic Drum&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on My Site</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/</link><description>Recent content in Posts on My Site</description><generator>Hugo -- 0.147.8</generator><language>en</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/en/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Computer Networks</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/computer-network/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/computer-network/</guid><description>&lt;ul>
+&lt;li>Wangdao Postgraduate Exam&lt;/li>
+&lt;/ul>
+&lt;h2 id="chapter-1-computer-network-architecture">Chapter 1: Computer Network Architecture&lt;/h2>
+&lt;p>Can communicate with each other, but do not control each other&lt;br>
+Components: hardware, software, protocol&lt;br>
+Working mode:&lt;/p>
+&lt;ul>
+&lt;li>Edge part: directly used by users&lt;/li>
+&lt;li>Core part: supports the edge&lt;br>
+Functions: data communication, resource sharing&lt;/li>
+&lt;/ul>
+&lt;h3 id="classification">Classification&lt;/h3>
+&lt;ul>
+&lt;li>Scope: WAN (Wide Area Network), MAN (Metropolitan Area Network), LAN (Local Area Network), PAN (Personal Area Network)&lt;/li>
+&lt;li>Users: Public network, Private network&lt;/li>
+&lt;li>Switching technology: Circuit switching, Message switching, Packet switching&lt;/li>
+&lt;li>Transmission technology: Broadcast, Point-to-point&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="cisco-packet-tracer-simulation">Cisco Packet Tracer Simulation&lt;/h2>
+&lt;h3 id="tcpip-four-layer-protocol-architecture">TCP/IP Four-Layer Protocol Architecture&lt;/h3>
+&lt;ul>
+&lt;li>Data Link Layer: Physical data transmission and network card driver reading data&lt;/li>
+&lt;li>Network Layer: Controls routing and forwarding of data packets&lt;/li>
+&lt;li>Transport Layer: Controls end-to-end communication between computers&lt;/li>
+&lt;li>Application Layer: Logic of various applications&lt;/li>
+&lt;/ul>
+&lt;p>Hub: A type of bus network, indiscriminate broadcasting and collisions&lt;br>
+Concepts: IP address, MAC address&lt;br>
+ARP Protocol: Address Resolution Protocol&lt;br>
+Belongs to the network layer. Maintains an ARP table recording IP addresses, MAC numbers, and network interfaces. When other protocols do not know the destination MAC address, they first send an ARP broadcast to inquire, update the table, and then try to send the original packet again.&lt;/p></description></item><item><title>Hash算法</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/hash-algorithms-explained/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/hash-algorithms-explained/</guid><description>&lt;p>The original data is calculated into a string of fixed-length numbers through a hash function, (such as SHA-256 algorithm which is 256 bits long), the calculated value is called a hash value (or digest). Hash values are irreversible, meaning that original data cannot be deduced from the hash value. Even if the original data changes slightly, the calculated hash value will be completely different from the previous one, making it hard to break violently according to the previous value. In practical applications, it&amp;rsquo;s often used for comparison. For instance, when we input a password, its hash value is calculated first and then transmitted to the server database. The password data stored in the database are all hash values of the original passwords, and a comparison with the hash value transmitted by the user verifies the correctness of the password.&lt;/p></description></item><item><title>存储技术</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/evolution-of-storage-technologies/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/evolution-of-storage-technologies/</guid><description>&lt;p>Simulated Signal Magnetic Drum&lt;/p>
 &lt;ul>
 &lt;li>The cylindrical drum itself rotates, with a probe reading the magnetic information on the drum’s surface.&lt;/li>
 &lt;li>Capacity is 60KB with read speed of 60KB/s.&lt;/li>
@@ -10,7 +41,7 @@
 &lt;li>The popping sound is caused by the dust on the track disrupting the needle. It can be eliminated with a dust cover or by vacuum processing.&lt;/li>
 &lt;li>With analog signals, the amount of information is theoretically infinite.&lt;/li>
 &lt;/ul>
-&lt;p>Magnetic Tape&lt;/p></description></item><item><title>数据库索引</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/</guid><description>&lt;p>What is an Index: A data structure that stores the index values and the disk addresses or raw data of the index entries.
+&lt;p>Magnetic Tape&lt;/p></description></item><item><title>数据库索引</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/understanding-database-indexes/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/understanding-database-indexes/</guid><description>&lt;p>What is an Index: A data structure that stores the index values and the disk addresses or raw data of the index entries.
 Common Data Structure: B+ Tree.
 Why not other data structures:
 Binary Tree: A one-way linked list is formed for incrementing indexes

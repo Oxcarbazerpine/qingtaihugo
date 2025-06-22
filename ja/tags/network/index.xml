@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network on 私のサイト</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/tags/network/</link><description>Recent content in Network on 私のサイト</description><generator>Hugo -- 0.147.8</generator><language>ja</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/ja/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>コンピュータネットワーク</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/computer-network/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/computer-network/</guid><description>&lt;h2 id="第1章-コンピュータネットワークのアーキテクチャ">第1章 コンピュータネットワークのアーキテクチャ&lt;/h2>
+&lt;p>相互に通信できるが、相互に制御しない&lt;br>
+構成要素：ハードウェア、ソフトウェア、プロトコル&lt;br>
+動作方式：&lt;/p>
+&lt;ul>
+&lt;li>エッジ部分：ユーザーが直接利用&lt;/li>
+&lt;li>コア部分：エッジをサポート&lt;br>
+機能：データ通信、リソース共有&lt;/li>
+&lt;/ul>
+&lt;h3 id="分類">分類&lt;/h3>
+&lt;ul>
+&lt;li>範囲：WAN（広域ネットワーク）、MAN（都市圏ネットワーク）、LAN（ローカルエリアネットワーク）、PAN（パーソナルエリアネットワーク）&lt;/li>
+&lt;li>ユーザー：パブリックネットワーク、プライベートネットワーク&lt;/li>
+&lt;li>スイッチング技術：回線交換、メッセージ交換、パケット交換&lt;/li>
+&lt;li>伝送技術：ブロードキャスト、ポイントツーポイント&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="cisco-packet-tracerシミュレーション">Cisco Packet Tracerシミュレーション&lt;/h2>
+&lt;h3 id="tcpip-4層プロトコルアーキテクチャ">TCP/IP 4層プロトコルアーキテクチャ&lt;/h3>
+&lt;ul>
+&lt;li>データリンク層：物理的なデータ伝送とNICによるデータ読み取り&lt;/li>
+&lt;li>ネットワーク層：パケットのルーティングと転送を制御&lt;/li>
+&lt;li>トランスポート層：コンピュータ間のエンドツーエンド通信を制御&lt;/li>
+&lt;li>アプリケーション層：各種アプリケーションのロジック&lt;/li>
+&lt;/ul>
+&lt;p>ハブ：バス型ネットワークの一種で、無差別にブロードキャストし衝突が発生&lt;br>
+概念：IPアドレス、MACアドレス&lt;br>
+ARPプロトコル：Address Resolution Protocol&lt;br>
+ネットワーク層に属し、IPアドレス・MACアドレス・ネットワークインターフェースを記録するARPテーブルを管理。他のプロトコルが宛先MACアドレスを知らない場合、まずARPブロードキャストで問い合わせ、テーブルを更新し、再度元のパケットを送信する。&lt;/p>
+&lt;hr>
+&lt;h2 id="トップダウンアプローチ">トップダウンアプローチ&lt;/h2>
+&lt;h3 id="概要">概要&lt;/h3>
+&lt;p>ブロードバンド接続：&lt;/p>
+&lt;ul>
+&lt;li>DSL（デジタル加入者線）：電話回線の多重化&lt;/li>
+&lt;li>ケーブルテレビ回線：光ファイバー＋同軸ケーブル&lt;/li>
+&lt;li>FTTH：光ファイバーを家庭まで&lt;/li>
+&lt;li>衛星リンク接続&lt;/li>
+&lt;li>WiFi：無線LAN接続 - モデム - ISP&lt;/li>
+&lt;li>広域無線接続：3G&lt;/li>
+&lt;/ul>
+&lt;p>物理メディア：&lt;/p>
+&lt;ul>
+&lt;li>ツイストペア：2本のより線、電話線、10M～10G、高速LAN&lt;/li>
+&lt;li>同軸ケーブル：同心円状の2本の銅導体、数十MB&lt;/li>
+&lt;li>光ファイバー：数百GB、電磁干渉なし、長距離減衰なし、高コスト&lt;/li>
+&lt;li>無線チャネル&lt;/li>
+&lt;li>衛星無線：280ms遅延、数百Mbps&lt;/li>
+&lt;/ul>
+&lt;p>パケット交換：&lt;/p>
+&lt;ul>
+&lt;li>ルータのストア＆フォワード：パケット全体をキャッシュしてから転送、遅延は2L/R&lt;/li>
+&lt;li>キュー遅延：ルータのキャッシュ制限でパケットロス&lt;/li>
+&lt;li>転送テーブル：ポートIPと物理番号&lt;/li>
+&lt;/ul>
+&lt;p>回線交換：リソースを予約し、回線交換構造&lt;br>
+送受信者はまず直接接続する回線を確立し、一定速度でデータを送信&lt;br>
+各回線交換機は通信のために一定帯域を予約&lt;/p>
+&lt;ul>
+&lt;li>FDM：周波数分割多重、固定周波数帯&lt;/li>
+&lt;li>TDM：時分割多重、各回線に専用タイムスロット&lt;/li>
+&lt;/ul>
+&lt;p>インターネット：ネットワークのネットワーク&lt;/p>
+&lt;ol>
+&lt;li>第1層ISP - 数十社&lt;/li>
+&lt;li>地域ISP - 数十万社&lt;/li>
+&lt;li>アクセスISP&lt;/li>
+&lt;/ol>
+&lt;p>遅延：1. 処理遅延 2. キュー遅延 3. 伝送遅延 4. 伝播遅延&lt;br>
+スループット：単位時間あたりのビット数、ボトルネックリンクで決定&lt;/p></description></item></channel></rss>
