@@ -6,8 +6,6 @@ homeInfoParams = { Title = "欢迎来到 Qingtai 的博客", Content = "这里�
 ShowPostList = true
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = true
-relativeURLs = true
-canonifyURLs = true
 [languages]
   [languages.en]
     languageName = "English"

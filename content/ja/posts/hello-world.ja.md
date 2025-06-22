@@ -1,8 +1,6 @@
 ---
 date: 2024-05-13
 draft: false
-lang: ja
-tags:
 title: "Hello World"
 ---
 
