@@ -187,34 +187,69 @@ ARP协议：Address Resolution Protocol
 &lt;p>延迟：1. 处理时延 2. 排队时延 3. 传输时延（推到线路上所用时间） 4. 传播时延
 流量强度/传输速率，接近1时，排队时延无限长
 丢包：超出缓冲区，被路由器丢弃
-吞吐量：单位时间传送的比特量，由链路的瓶颈决定&lt;/p></description></item><item><title>数据库索引</title><link>https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/</guid><description>&lt;p>索引是什么：一种存储了索引值和索引条目的磁盘地址或原始数据的数据结构
-常用数据结构：B+树
-为什么不用其他数据结构:
-二叉树：对递增索引会形成一个单向链表
-二叉平衡树（红黑树）：每个节点存储索引和地址，自动平衡左右分支高度，早期MySQL曾使用。每层数据量少，树高太高，查找起来还是不够快。
-B树：多叉，每个节点存储索引和Data，索引从左向右递增，没有重复索引
-B+树：MySQL使用，所有数据存在叶子节点，非叶子节点只存储冗余的头部索引（像单词表中的首字母索引），叶子节点之间用指针连接，以提高区间查找的性能。
-特征：&lt;/p>
+吞吐量：单位时间传送的比特量，由链路的瓶颈决定&lt;/p></description></item><item><title>数据库索引</title><link>https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/</guid><description>&lt;h2 id="索引是什么">索引是什么&lt;/h2>
+&lt;p>一种存储了索引值和索引条目的磁盘地址或原始数据的数据结构。&lt;/p>
+&lt;h2 id="常用数据结构b树">常用数据结构：B+树&lt;/h2>
+&lt;h3 id="为什么不用其他数据结构">为什么不用其他数据结构&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>二叉树&lt;/strong>&lt;br>
+对递增索引会形成一个单向链表。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>二叉平衡树（红黑树）&lt;/strong>&lt;br>
+每个节点存储索引和地址，自动平衡左右分支高度，早期MySQL曾使用。每层数据量少，树高太高，查找起来还是不够快。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>B树&lt;/strong>&lt;br>
+多叉，每个节点存储索引和Data，索引从左向右递增，没有重复索引。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>B+树&lt;/strong>&lt;br>
+MySQL使用，所有数据存在叶子节点，非叶子节点只存储冗余的头部索引（像单词表中的首字母索引），叶子节点之间用指针连接，以提高区间查找的性能。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="特征">特征&lt;/h3>
 &lt;ul>
 &lt;li>一种二叉树&lt;/li>
 &lt;li>每个节点有多个数据，MySQL一个节点有16KB大小&lt;/li>
 &lt;li>因为单个节点数据多，树的高度很低，一般3层&lt;/li>
 &lt;/ul>
-&lt;p>存储引擎 MyISAM 和 InnoDB
-区别
-MyISAM：每个数据库存储在data目录下，每个数据库表文件中，MyISAM有3种文件，.frm 文件存储表结构，.MYD （D for data）存储原始数据， .MYI （I for index）存储表的索引，也就是B+树结构。为非聚集索引：数据和索引不聚集在一起存放，分成两个文件，索引只找出地址
-InnoDB：库表文件中只有两种类型，.frm 存储表结构，.idb 存储数据和索引，对应行数据全部挂在叶子节点上，节省了按地址查找数据的一次I/O操作，为聚集索引（Clustered Index），性能更好。
-联系:
-内部使用B+树，取到子节点后加载到内存进行内部的二分查找&lt;/p>
-&lt;p>思考：
-为什么InnoDB建议建立主键索引，并且使用整型自增主键：&lt;/p>
+&lt;hr>
+&lt;h2 id="存储引擎-myisam-和-innodb">存储引擎 MyISAM 和 InnoDB&lt;/h2>
+&lt;h3 id="区别">区别&lt;/h3>
 &lt;ul>
-&lt;li>为什么建立主键：因为MySql的查询逻辑是，首先必须建立B+树来组织数据，所以必须要有索引， 如果是非主键索引，叶子节点存储的Data是对应行的主键的值，然后再进行一次主键索引查找。如果连非主键索引都没有，MySQL会在现有列中选择一列符合无重复的Unique的列来建立索引查找，如果没有这样的列，就建立一列隐藏列，用来建立索引。&lt;/li>
-&lt;li>为什么要用整数：比对操作快，如果是字符串索引，需要逐位查找编码表（ASCII或者utf8等）表然后比较先后，这也是为什么不推荐使用是随机字符串的UUID&lt;/li>
-&lt;li>为什么需要自增：&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>MyISAM&lt;/strong>&lt;br>
+每个数据库存储在data目录下，每个数据库表文件中，MyISAM有3种文件，&lt;code>.frm&lt;/code> 文件存储表结构，&lt;code>.MYD&lt;/code>（D for data）存储原始数据，&lt;code>.MYI&lt;/code>（I for index）存储表的索引，也就是B+树结构。为非聚集索引：数据和索引不聚集在一起存放，分成两个文件，索引只找出地址。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>InnoDB&lt;/strong>&lt;br>
+库表文件中只有两种类型，&lt;code>.frm&lt;/code> 存储表结构，&lt;code>.idb&lt;/code> 存储数据和索引，对应行数据全部挂在叶子节点上，节省了按地址查找数据的一次I/O操作，为聚集索引（Clustered Index），性能更好。&lt;/p>
+&lt;/li>
 &lt;/ul>
-&lt;p>每个字段的索引可以设置，默认为B+ Tree，可以选择用Hash
-Hash:&lt;/p>
+&lt;h3 id="联系">联系&lt;/h3>
+&lt;p>内部使用B+树，取到子节点后加载到内存进行内部的二分查找。&lt;/p>
+&lt;hr>
+&lt;h2 id="思考">思考&lt;/h2>
+&lt;h3 id="为什么innodb建议建立主键索引并且使用整型自增主键">为什么InnoDB建议建立主键索引，并且使用整型自增主键&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>为什么建立主键&lt;/strong>&lt;br>
+因为MySQL的查询逻辑是，首先必须建立B+树来组织数据，所以必须要有索引。如果是非主键索引，叶子节点存储的Data是对应行的主键的值，然后再进行一次主键索引查找。如果连非主键索引都没有，MySQL会在现有列中选择一列符合无重复的Unique的列来建立索引查找，如果没有这样的列，就建立一列隐藏列，用来建立索引。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>为什么要用整数&lt;/strong>&lt;br>
+比对操作快，如果是字符串索引，需要逐位查找编码表（ASCII或者utf8等）表然后比较先后，这也是为什么不推荐使用是随机字符串的UUID。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>为什么需要自增&lt;/strong>&lt;br>
+（此处原文未说明原因，可根据需要补充）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="每个字段的索引可以设置默认为b-tree可以选择用hash">每个字段的索引可以设置，默认为B+ Tree，可以选择用Hash&lt;/h2>
+&lt;h3 id="hash">Hash&lt;/h3>
 &lt;ul>
 &lt;li>MySQL有自己的hash实现&lt;/li>
 &lt;li>本质是数组+链表，hash计算查找值算出hash值，作为数组的key，数据作为数组的value；如果计算出的hash值重复了，即发生了hash碰撞，则数组value存储指向下一个链表节点的指针，直到链表末尾指向数据。&lt;/li>

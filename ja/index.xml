@@ -1,34 +1,71 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>私のサイト</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/</link><description>Recent content on 私のサイト</description><generator>Hugo -- 0.147.8</generator><language>ja</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQLのインデックス構造</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/mysql%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%A7%8B%E9%80%A0/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/mysql%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%A7%8B%E9%80%A0/</guid><description>&lt;p>インデックスとは？：インデックス値とインデックスエントリのディスクアドレスまたは元のデータを保存したデータ構造
-一般的なデータ構造：B+ツリー
-なぜ他のデータ構造を使わないのか:
-二分木：逐次的なインデックスで一方向リンクリストが形成されます。
-二分探索木（レッドブラックツリー）：各ノードがインデックスとアドレスを保存し、自動的に左右の枝の高さをバランス取りする特性があり、かつてはMySQLが利用していた。しかし、各レベルのデータ量は少なく、ツリーの高さが高すぎるため、探索速度が追いつかない。
-Bツリー：多分岐の性質を持ち、各ノードがインデックスとデータを保存、インデックスは左から右へと増加し、重複したインデックスは存在しない。
-B+ツリー：MySQLが使用しており、すべてのデータは葉ノードに存在し、非葉ノードは冗長な先頭インデックス（例えば、辞書の頭文字インデックスのような）のみを保存します。葉ノード間はポインタで接続されており、区間探索のパフォーマンスを向上させます。
-特性：&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>私のサイト</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/</link><description>Recent content on 私のサイト</description><generator>Hugo -- 0.147.8</generator><language>ja</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQLのインデックス構造</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/mysql%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%A7%8B%E9%80%A0/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/mysql%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%A7%8B%E9%80%A0/</guid><description>&lt;h2 id="インデックスとは">インデックスとは？&lt;/h2>
+&lt;p>インデックス値とインデックスエントリのディスクアドレスまたは元のデータを保存したデータ構造。&lt;/p>
+&lt;h3 id="一般的なデータ構造bツリー">一般的なデータ構造：B+ツリー&lt;/h3>
+&lt;h4 id="なぜ他のデータ構造を使わないのか">なぜ他のデータ構造を使わないのか&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>二分木&lt;/strong>&lt;br>
+逐次的なインデックスで一方向リンクリストが形成されます。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>二分探索木（レッドブラックツリー）&lt;/strong>&lt;br>
+各ノードがインデックスとアドレスを保存し、自動的に左右の枝の高さをバランス取りする特性があり、かつてはMySQLが利用していた。しかし、各レベルのデータ量は少なく、ツリーの高さが高すぎるため、探索速度が追いつかない。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Bツリー&lt;/strong>&lt;br>
+多分岐の性質を持ち、各ノードがインデックスとデータを保存、インデックスは左から右へと増加し、重複したインデックスは存在しない。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>B+ツリー&lt;/strong>&lt;br>
+MySQLが使用しており、すべてのデータは葉ノードに存在し、非葉ノードは冗長な先頭インデックス（例えば、辞書の頭文字インデックスのような）のみを保存します。葉ノード間はポインタで接続されており、区間探索のパフォーマンスを向上させます。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="特性">特性&lt;/h4>
 &lt;ul>
 &lt;li>二分検索木型の一種&lt;/li>
 &lt;li>各ノードには複数のデータが存在し、MySQLでは一つのノードのサイズは16KB&lt;/li>
 &lt;li>単一ノード内に多くのデータが存在するため、ツリーの高さは低く、一般的には3層&lt;/li>
 &lt;/ul>
-&lt;p>ストレージエンジン MyISAM と InnoDB
-差分：
-MyISAM：各データベースはdataディレクトリ下に保存され、各データベーステーブルファイルでは、MyISAMには.frm（テーブル構造）、.MYD（データ本体）、.MYI（インデックス）の3種類のファイルがあり、これがB+ツリー構造に対応しています。また、MyISAMは非クラスタインデックスを採用し、データとインデックスは分けて保存され、インデックスはアドレスのみを探します。
-InnoDB：ライブラリのテーブルファイルには.frm（テーブル構造）と.idb（データとインデックス）の2種類のファイルのみがあり、対応する行データはすべて葉ノード上にぶら下がっており、データアクセスの際のI/O操作を1回省略できるため、クラスタインデックス（Clustered Index）を使用しながら、パフォーマンスが高いです。
-接続：
-内部ではB+ツリーを利用し、子ノードを取得したあとは、メモリ内で二分探索を行います。&lt;/p>
-&lt;p>思考：
-なぜInnoDBは主キーインデックスの作成を推奨し、整数型の自増主キーを利用するのか：&lt;/p>
+&lt;hr>
+&lt;h2 id="ストレージエンジン-myisam-と-innodb">ストレージエンジン MyISAM と InnoDB&lt;/h2>
+&lt;h3 id="差分">差分&lt;/h3>
 &lt;ul>
-&lt;li>主キーを作成する理由：MySqlのクエリロジックでは、まずB+ツリーを作成してデータを整理しなければならないため、インデックスが必須です。非主キーインデックスの場合、葉ノードが保存するデータは対応行の主キー値であり、その後、主キーインデックスの探索が再度行われます。非主キーインデックスが存在しない場合、MySQLは現在の列から一つの重複しないUnique列を選択し、インデックス探索を行います。このような列が存在しない場合、隠し列を作成し、インデックスを構築します。&lt;/li>
-&lt;li>整数型を使用する理由：操作が速く、文字列インデックスの場合、エンコーディングテーブル（ASCIIやUTF-8等）を一文字ずつ検索し、その後、前後を比較する必要があります。これは、ランダム文字列のUUIDの使用を推奨しない理由の一つです。&lt;/li>
-&lt;li>自増する理由：&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>MyISAM&lt;/strong>&lt;br>
+各データベースは &lt;code>data&lt;/code> ディレクトリ下に保存され、各データベーステーブルファイルでは、MyISAMには &lt;code>.frm&lt;/code>（テーブル構造）、&lt;code>.MYD&lt;/code>（データ本体）、&lt;code>.MYI&lt;/code>（インデックス）の3種類のファイルがあり、これがB+ツリー構造に対応しています。また、MyISAMは非クラスタインデックスを採用し、データとインデックスは分けて保存され、インデックスはアドレスのみを探します。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>InnoDB&lt;/strong>&lt;br>
+テーブルファイルには &lt;code>.frm&lt;/code>（テーブル構造）と &lt;code>.idb&lt;/code>（データとインデックス）の2種類のファイルのみがあり、対応する行データはすべて葉ノード上にぶら下がっています。データアクセスの際のI/O操作を1回省略できるため、クラスタインデックス（Clustered Index）を使用し、パフォーマンスが高いです。&lt;/p>
+&lt;/li>
 &lt;/ul>
-&lt;p>各フィールドのインデックスは設定可能で、デフォルトはB+ツリーで、ハッシュを用いることも可能です。
-ハッシュ：&lt;/p>
+&lt;h3 id="接続">接続&lt;/h3>
+&lt;p>内部ではB+ツリーを利用し、子ノードを取得したあとは、メモリ内で二分探索を行います。&lt;/p>
+&lt;hr>
+&lt;h2 id="思考">思考&lt;/h2>
+&lt;h3 id="なぜinnodbは主キーインデックスの作成を推奨し整数型の自増主キーを利用するのか">なぜInnoDBは主キーインデックスの作成を推奨し、整数型の自増主キーを利用するのか&lt;/h3>
 &lt;ul>
-&lt;li>MySQLには独自のハッシュ実装があります&lt;/li>
-&lt;li>その本質は配列＋リンクリストであり、ハッシュ値を算出し、その値を配列のキーとし、データを配列のバリューとして保存します。ハッシュ値が重複する場合（ハッシュの衝突）、配列のバリューには次のリンクリストのノードへのポインタが保存され、リンクリストの末端までデータへのポインタが続きます。&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>主キーを作成する理由&lt;/strong>&lt;br>
+MySQLのクエリロジックでは、まずB+ツリーを作成してデータを整理しなければならないため、インデックスが必須です。非主キーインデックスの場合、葉ノードが保存するデータは対応行の主キー値であり、その後、主キーインデックスの探索が再度行われます。非主キーインデックスが存在しない場合、MySQLは現在の列から一つの重複しないUnique列を選択し、インデックス探索を行います。このような列が存在しない場合、隠し列を作成し、インデックスを構築します。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>整数型を使用する理由&lt;/strong>&lt;br>
+操作が速く、文字列インデックスの場合、エンコーディングテーブル（ASCIIやUTF-8等）を一文字ずつ検索し、その後、前後を比較する必要があります。これは、ランダム文字列のUUIDの使用を推奨しない理由の一つです。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>自増する理由&lt;/strong>&lt;br>
+（※本文に理由の記載がありません。必要に応じて追記してください）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="インデックスの種類">インデックスの種類&lt;/h2>
+&lt;p>各フィールドのインデックスは設定可能で、デフォルトはB+ツリーですが、ハッシュを用いることも可能です。&lt;/p>
+&lt;h3 id="ハッシュ">ハッシュ&lt;/h3>
+&lt;ul>
+&lt;li>MySQLには独自のハッシュ実装があります。&lt;/li>
+&lt;li>その本質は配列＋リンクリストであり、ハッシュ値を算出し、その値を配列のキーとし、データを配列のバリューとして保存します。&lt;/li>
+&lt;li>ハッシュ値が重複する場合（ハッシュの衝突）、配列のバリューには次のリンクリストのノードへのポインタが保存され、リンクリストの末端までデータへのポインタが続きます。&lt;/li>
 &lt;li>一般的には、探索速度はB+ツリーよりも優れていますが、区間探索ができないため、採用されていませんが、区間探索が不要な場合は、ハッシュインデックスの使用を検討することができます。&lt;/li>
 &lt;/ul></description></item><item><title>コンピュータネットワーク</title><link>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/computer-network/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/ja/posts/computer-network/</guid><description>&lt;h2 id="第1章-コンピュータネットワークのアーキテクチャ">第1章 コンピュータネットワークのアーキテクチャ&lt;/h2>
 &lt;p>相互に通信できるが、相互に制御しない&lt;br>

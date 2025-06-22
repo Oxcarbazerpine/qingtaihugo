@@ -32,11 +32,27 @@ Intro 宽带接入：
 缓存完整分组后转发，延迟为2L/R 排队时延queue delay：路由器的缓存有限，造成丢包packet lost 转发表forwarding table：端口ip与物理编号 电路交换：预定资源，电路交换机构成 收发方先建立一条能直接联通的电路circuit，确保能以恒定速率传输数据。 每个电路交换机预留恒定带宽维持通信
 频分复用FDM|Frequency-Division Multiplexing:分配固定的频段，收音机FM也是 时分复用TDM：在循环的TDM帧重每条电路被分配专用时隙 互联网：网络的网络，
 第一层ISP-十数个 区域ISP-数十万个 接入ISP 延迟：1. 处理时延 2. 排队时延 3. 传输时延（推到线路上所用时间） 4. 传播时延 流量强度/传输速率，接近1时，排队时延无限长 丢包：超出缓冲区，被路由器丢弃 吞吐量：单位时间传送的比特量，由链路的瓶颈决定
-...</p></div><footer class=entry-footer><span title='2024-06-01 00:00:00 +0000 UTC'>六月 1, 2024</span></footer><a class=entry-link aria-label="post link to 计算机网络" href=https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>数据库索引</h2></header><div class=entry-content><p>索引是什么：一种存储了索引值和索引条目的磁盘地址或原始数据的数据结构 常用数据结构：B+树 为什么不用其他数据结构: 二叉树：对递增索引会形成一个单向链表 二叉平衡树（红黑树）：每个节点存储索引和地址，自动平衡左右分支高度，早期MySQL曾使用。每层数据量少，树高太高，查找起来还是不够快。 B树：多叉，每个节点存储索引和Data，索引从左向右递增，没有重复索引 B+树：MySQL使用，所有数据存在叶子节点，非叶子节点只存储冗余的头部索引（像单词表中的首字母索引），叶子节点之间用指针连接，以提高区间查找的性能。 特征：
-一种二叉树 每个节点有多个数据，MySQL一个节点有16KB大小 因为单个节点数据多，树的高度很低，一般3层 存储引擎 MyISAM 和 InnoDB 区别 MyISAM：每个数据库存储在data目录下，每个数据库表文件中，MyISAM有3种文件，.frm 文件存储表结构，.MYD （D for data）存储原始数据， .MYI （I for index）存储表的索引，也就是B+树结构。为非聚集索引：数据和索引不聚集在一起存放，分成两个文件，索引只找出地址 InnoDB：库表文件中只有两种类型，.frm 存储表结构，.idb 存储数据和索引，对应行数据全部挂在叶子节点上，节省了按地址查找数据的一次I/O操作，为聚集索引（Clustered Index），性能更好。 联系: 内部使用B+树，取到子节点后加载到内存进行内部的二分查找
-思考： 为什么InnoDB建议建立主键索引，并且使用整型自增主键：
-为什么建立主键：因为MySql的查询逻辑是，首先必须建立B+树来组织数据，所以必须要有索引， 如果是非主键索引，叶子节点存储的Data是对应行的主键的值，然后再进行一次主键索引查找。如果连非主键索引都没有，MySQL会在现有列中选择一列符合无重复的Unique的列来建立索引查找，如果没有这样的列，就建立一列隐藏列，用来建立索引。 为什么要用整数：比对操作快，如果是字符串索引，需要逐位查找编码表（ASCII或者utf8等）表然后比较先后，这也是为什么不推荐使用是随机字符串的UUID 为什么需要自增： 每个字段的索引可以设置，默认为B+ Tree，可以选择用Hash Hash:
-MySQL有自己的hash实现 本质是数组+链表，hash计算查找值算出hash值，作为数组的key，数据作为数组的value；如果计算出的hash值重复了，即发生了hash碰撞，则数组value存储指向下一个链表节点的指针，直到链表末尾指向数据。 一般情况下查找速度甚至好于B+树，但是由于不能进行范围查找，没有被采用，因此如果不进行区间查找的场景可以考虑使用hash索引</p></div><footer class=entry-footer><span title='2024-06-01 00:00:00 +0000 UTC'>六月 1, 2024</span></footer><a class=entry-link aria-label="post link to 数据库索引" href=https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Hello World</h2></header><div class=entry-content><p>这是第一篇文章内容。</p></div><footer class=entry-footer><span title='2024-05-13 00:00:00 +0000 UTC'>五月 13, 2024</span></footer><a class=entry-link aria-label="post link to Hello World" href=https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/hello-world/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://oxcarbazerpine.github.io/qingtaihugo/zh/>青苔博客</a></span> ·
+...</p></div><footer class=entry-footer><span title='2024-06-01 00:00:00 +0000 UTC'>六月 1, 2024</span></footer><a class=entry-link aria-label="post link to 计算机网络" href=https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>数据库索引</h2></header><div class=entry-content><p>索引是什么 一种存储了索引值和索引条目的磁盘地址或原始数据的数据结构。
+常用数据结构：B+树 为什么不用其他数据结构 二叉树
+对递增索引会形成一个单向链表。
+二叉平衡树（红黑树）
+每个节点存储索引和地址，自动平衡左右分支高度，早期MySQL曾使用。每层数据量少，树高太高，查找起来还是不够快。
+B树
+多叉，每个节点存储索引和Data，索引从左向右递增，没有重复索引。
+B+树
+MySQL使用，所有数据存在叶子节点，非叶子节点只存储冗余的头部索引（像单词表中的首字母索引），叶子节点之间用指针连接，以提高区间查找的性能。
+特征 一种二叉树 每个节点有多个数据，MySQL一个节点有16KB大小 因为单个节点数据多，树的高度很低，一般3层 存储引擎 MyISAM 和 InnoDB 区别 MyISAM
+每个数据库存储在data目录下，每个数据库表文件中，MyISAM有3种文件，.frm 文件存储表结构，.MYD（D for data）存储原始数据，.MYI（I for index）存储表的索引，也就是B+树结构。为非聚集索引：数据和索引不聚集在一起存放，分成两个文件，索引只找出地址。
+InnoDB
+库表文件中只有两种类型，.frm 存储表结构，.idb 存储数据和索引，对应行数据全部挂在叶子节点上，节省了按地址查找数据的一次I/O操作，为聚集索引（Clustered Index），性能更好。
+联系 内部使用B+树，取到子节点后加载到内存进行内部的二分查找。
+思考 为什么InnoDB建议建立主键索引，并且使用整型自增主键 为什么建立主键
+因为MySQL的查询逻辑是，首先必须建立B+树来组织数据，所以必须要有索引。如果是非主键索引，叶子节点存储的Data是对应行的主键的值，然后再进行一次主键索引查找。如果连非主键索引都没有，MySQL会在现有列中选择一列符合无重复的Unique的列来建立索引查找，如果没有这样的列，就建立一列隐藏列，用来建立索引。
+为什么要用整数
+比对操作快，如果是字符串索引，需要逐位查找编码表（ASCII或者utf8等）表然后比较先后，这也是为什么不推荐使用是随机字符串的UUID。
+为什么需要自增
+（此处原文未说明原因，可根据需要补充）
+每个字段的索引可以设置，默认为B+ Tree，可以选择用Hash Hash MySQL有自己的hash实现 本质是数组+链表，hash计算查找值算出hash值，作为数组的key，数据作为数组的value；如果计算出的hash值重复了，即发生了hash碰撞，则数组value存储指向下一个链表节点的指针，直到链表末尾指向数据。 一般情况下查找速度甚至好于B+树，但是由于不能进行范围查找，没有被采用，因此如果不进行区间查找的场景可以考虑使用hash索引</p></div><footer class=entry-footer><span title='2024-06-01 00:00:00 +0000 UTC'>六月 1, 2024</span></footer><a class=entry-link aria-label="post link to 数据库索引" href=https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Hello World</h2></header><div class=entry-content><p>这是第一篇文章内容。</p></div><footer class=entry-footer><span title='2024-05-13 00:00:00 +0000 UTC'>五月 13, 2024</span></footer><a class=entry-link aria-label="post link to Hello World" href=https://oxcarbazerpine.github.io/qingtaihugo/zh/posts/hello-world/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://oxcarbazerpine.github.io/qingtaihugo/zh/>青苔博客</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>

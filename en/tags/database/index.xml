@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Database on My Site</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/tags/database/</link><description>Recent content in Database on My Site</description><generator>Hugo -- 0.147.8</generator><language>en</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/en/tags/database/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding Database Indexes</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/understanding-database-indexes/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/understanding-database-indexes/</guid><description>&lt;p>What is an Index: A data structure that stores the index values and the disk addresses or raw data of the index entries.
-Common Data Structure: B+ Tree.
-Why not other data structures:
-Binary Tree: A one-way linked list is formed for incrementing indexes
-Binary Balanced Tree (Red-Black Tree): Each node stores the index and address. It balances the height of the left and right branches and was used by early MySQL. It is not fast enough because there are few data entries per level, and the tree is too tall.
-B Tree: It is multi-way. Each node stores the index and data. The index values increment from left to right without duplicate indexes.
-B+ Tree: Used by MySQL. All data is stored in leaf nodes. Non-leaf nodes only store redundant header indexes (like alphabetical indexes in a dictionary). Leaf nodes are linked by pointers to improve the performance of range searches.
-Characteristics:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Database on My Site</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/tags/database/</link><description>Recent content in Database on My Site</description><generator>Hugo -- 0.147.8</generator><language>en</language><lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://oxcarbazerpine.github.io/qingtaihugo/en/tags/database/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding Database Indexes</title><link>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/understanding-database-indexes/</link><pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate><guid>https://oxcarbazerpine.github.io/qingtaihugo/en/posts/understanding-database-indexes/</guid><description>&lt;h2 id="what-is-an-index">What is an Index&lt;/h2>
+&lt;p>A data structure that stores the index values and the disk addresses or raw data of the index entries.&lt;/p>
+&lt;h2 id="common-data-structure-b-tree">Common Data Structure: B+ Tree&lt;/h2>
+&lt;h3 id="why-not-other-data-structures">Why Not Other Data Structures&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Binary Tree&lt;/strong>&lt;br>
+A one-way linked list is formed for incrementing indexes.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Binary Balanced Tree (Red-Black Tree)&lt;/strong>&lt;br>
+Each node stores the index and address. It balances the height of the left and right branches and was used by early MySQL. It is not fast enough because there are few data entries per level, and the tree is too tall.&lt;/p></description></item></channel></rss>
