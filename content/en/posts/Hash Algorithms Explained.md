@@ -1,10 +1,8 @@
 ---
 date: 2024-06-01
 draft: false
-lang: en
-tags:
-- Algorithsm
-title: Hash算法
+tags: ["Algorithsm"]
+title: "Hash Algorithms Explained"
 ---
 
 The original data is calculated into a string of fixed-length numbers through a hash function, (such as SHA-256 algorithm which is 256 bits long), the calculated value is called a hash value (or digest). Hash values are irreversible, meaning that original data cannot be deduced from the hash value. Even if the original data changes slightly, the calculated hash value will be completely different from the previous one, making it hard to break violently according to the previous value. In practical applications, it's often used for comparison. For instance, when we input a password, its hash value is calculated first and then transmitted to the server database. The password data stored in the database are all hash values of the original passwords, and a comparison with the hash value transmitted by the user verifies the correctness of the password.

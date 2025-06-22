@@ -32,7 +32,7 @@ canonifyURLs = true
 [menus]
   [[languages.en.menu.main]]
     name = "Home"
-    url = "/"
+    url = "/en/"
     weight = 1
 
   [[languages.ja.menu.main]]

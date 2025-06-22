@@ -1,9 +1,7 @@
 ---
 date: 2024-06-01
 draft: false
-lang: en
-tags:
-- Hardware
+tags: ["Hardware"]
 title: 存储技术
 ---
 

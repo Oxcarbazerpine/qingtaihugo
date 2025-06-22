@@ -1,10 +1,8 @@
 ---
 date: 2024-06-01
 draft: false
-lang: en
-tags:
-- Database
-title: 数据库索引
+tags: ["Database"]
+title: "Understanding Database Indexes"
 ---
 
 What is an Index: A data structure that stores the index values and the disk addresses or raw data of the index entries.
