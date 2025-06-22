@@ -67,7 +67,6 @@ Internally, both use B+ Trees. After fetching the child nodes, they are loaded i
   Integer comparison is fast. When using a string index, the system must look up the encoding table (ASCII or UTF-8, etc.) bit by bit and then compare them. That's why the use of random string UUIDs isn't recommended.
 
 - **Why auto-increment**  
-  (No reason provided in the original text. Add as needed.)
 
 ---
 
