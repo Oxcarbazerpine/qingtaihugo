@@ -6,24 +6,29 @@ homeInfoParams = { Title = "欢迎来到 Qingtai 的博客", Content = "这里�
 ShowPostList = true
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = true
+relativeURLs = true
+canonifyURLs = true
 [languages]
   [languages.en]
     languageName = "English"
     weight = 1
     contentDir = "content/en"
     title = "My Site"
+    baseURL = "https://oxcarbazerpine.github.io/qingtaihugo/en/"
     
   [languages.ja]
     languageName = "日本語"
     weight = 2
     contentDir = "content/ja"
     title = "私のサイト"
+    baseURL = "https://oxcarbazerpine.github.io/qingtaihugo/ja/"
     
   [languages.zh]
     languageName = "中文"
     weight = 3
     contentDir = "content/zh"
     title = "青苔博客"
+    baseURL = "https://oxcarbazerpine.github.io/qingtaihugo/zh/"
 [menus]
   [[languages.en.menu.main]]
     name = "Home"
