@@ -14,21 +14,19 @@ canonifyURLs = true
     weight = 1
     contentDir = "content/en"
     title = "My Site"
-    baseURL = "https://oxcarbazerpine.github.io/qingtaihugo/en/"
-    
+  
   [languages.ja]
     languageName = "日本語"
     weight = 2
     contentDir = "content/ja"
     title = "私のサイト"
-    baseURL = "https://oxcarbazerpine.github.io/qingtaihugo/ja/"
-    
+  
   [languages.zh]
     languageName = "中文"
     weight = 3
     contentDir = "content/zh"
     title = "青苔博客"
-    baseURL = "https://oxcarbazerpine.github.io/qingtaihugo/zh/"
+
 [menus]
   [[languages.en.menu.main]]
     name = "Home"
